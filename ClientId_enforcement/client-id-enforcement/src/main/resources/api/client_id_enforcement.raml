@@ -1,0 +1,38 @@
+#%RAML 1.0
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/63413857-ab34-4249-8d02-287b3044b945/ # 
+title: Client_Id_Enforcement
+
+/united:
+  get:
+    queryParameters:
+      destination:
+        required: true
+    body:
+          application/json:                    
+    responses:
+      200:
+        body:
+          application/json:
+            example: {
+                          "flights": [
+                            {
+                              "code": "ER38sd",
+                              "price": 400,
+                              "origin": "MUA",
+                              "destination": "SFO",
+                              "departureDate": "2015/03/20",
+                              "airlineName": "United",
+                              "planeType": "Boeing 737",
+                              "emptySeats": 0
+                            },
+                            {
+                              "code": "ER45if",
+                              "price": 345.99,
+                              "origin": "MUA",
+                              "destination": "LAX",
+                              "departureDate": "2015/02/11",
+                              "airlineName": "United",
+                              "planeType": "Boeing 737",
+                              "emptySeats": 52
+                            }]}
+              
