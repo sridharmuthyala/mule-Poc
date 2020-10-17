@@ -1,0 +1,124 @@
+{
+	"id": "c7400230-2ec3-8880-8b3a-b8e9908aa2df",
+	"name": "my",
+	"description": "",
+	"order": [
+		"afafa60a-120f-73ee-273f-ffa51d27e241",
+		"b20647ca-d26b-d879-6927-d991787ede43",
+		"0fd5320b-b414-ad47-27ae-2806b08322de"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1602836994671,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "0fd5320b-b414-ad47-27ae-2806b08322de",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8081/path5?firstname=James&secondname=Butt",
+			"queryParams": [
+				{
+					"key": "firstname",
+					"value": "James",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "secondname",
+					"value": "Butt",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "c7400230-2ec3-8880-8b3a-b8e9908aa2df",
+			"data": null,
+			"dataMode": "params",
+			"name": "Multiple-variables",
+			"description": "multiple variyable",
+			"descriptionFormat": "html",
+			"time": 1602958632328,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "afafa60a-120f-73ee-273f-ffa51d27e241",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8081/path1",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "c7400230-2ec3-8880-8b3a-b8e9908aa2df",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://localhost:8081/path1",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1602837002599,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\r\n    \"firstname\": \"Rory\",\r\n    \"lastname\": \"Papasergi\",\r\n    \"companyname\": \"Bailey Cntl Co Div Babcock\",\r\n    \"address\": \"83 County Road 437 #8581\",\r\n    \"city\": \"Clarks Summit\",\r\n    \"county\": \"Lackawanna\",\r\n    \"state\": \"PA\",\r\n    \"zip\": \"18411\",\r\n    \"phone1\": \"570-867-7489\",\r\n    \"phone2\": \"570-469-8401\",\r\n    \"email\": \"rpapasergi@cox.net\",\r\n    \"web\": \"http://www.baileycntlcodivbabcock.com\"\r\n  }"
+		},
+		{
+			"id": "b20647ca-d26b-d879-6927-d991787ede43",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8081/path5?firstname=si",
+			"queryParams": [
+				{
+					"key": "firstname",
+					"value": "si",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1602958524049,
+			"name": "likefunction",
+			"description": "multiple queryparams",
+			"collectionId": "c7400230-2ec3-8880-8b3a-b8e9908aa2df",
+			"responses": [],
+			"rawModeData": "  {\r\n    \"first_name\": \"Rory\",\r\n    \"last_name\": \"Papasergi\",\r\n    \"company_name\": \"Bailey Cntl Co Div Babcock\",\r\n    \"address\": \"83 County Road 437 #8581\",\r\n    \"city\": \"Clarks Summit\",\r\n    \"county\": \"Lackawanna\",\r\n    \"state\": \"PA\",\r\n    \"zip\": \"18411\",\r\n    \"phone1\": \"570-867-7489\",\r\n    \"phone2\": \"570-469-8401\",\r\n    \"email\": \"rpapasergi@cox.net\",\r\n    \"web\": \"http://www.baileycntlcodivbabcock.com\"\r\n  }"
+		}
+	]
+}

@@ -7,9 +7,7 @@ http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/cu
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
 	
-	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="cac1c367-31a6-4494-84a1-b293bfef0c54" >
-		<http:listener-connection host="0.0.0.0" port="8081" />
-	</http:listener-config>
+	
 	<flow name="get_method" doc:id="9fc139d1-2740-4ce2-8a72-41ff7265e27c" >
 		<http:listener doc:name="Listener" doc:id="cd690a88-dc08-4ee9-a7e8-b2aa641bc695" config-ref="HTTP_Listener_config" path="/path" outputMimeType="application/csv; ignoreemptyline=true">
 			<redelivery-policy />

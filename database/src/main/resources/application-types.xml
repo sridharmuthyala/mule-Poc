@@ -10,4 +10,5 @@ type input = Array<{|  first_name: String,   last_name: String,   company_name: 
     </types:type>
   </types:catalog>
   <types:enrichment select="#24a83619-61f7-42d8-a3a2-0256da599783"/>
+  <types:enrichment select="#6134a41e-0d35-4307-884e-3e7db9bbb57b"/>
 </types:mule>
