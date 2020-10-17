@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd">
+	<flow name="Bulk-inser-csvFlow" doc:id="054136f8-6c7c-4901-aed7-7171f4ce1ed0" >
+		<http:listener doc:name="Listener" doc:id="b81c4441-d8a6-4dcc-8c33-be1810d01185" config-ref="HTTP_Listener_config" path="/path3"/>
+		<file:read doc:name="Read" doc:id="98ec4067-9ad6-413e-b7a9-83157c119d49" path="C:\Users\Muthyala Sridheer\Desktop\us-500.json"/>
+		<ee:transform doc:name="Transform Message" doc:id="24a83619-61f7-42d8-a3a2-0256da599783" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload map {
+    value1:$.first_name,
+    value2:$.last_name,
+    value3:$.company_name,
+    value4:$.address,
+    value5:$.city,
+    value6:$.county,
+    value7:$.state,
+    value8:$.zip,
+    value9:$.phone1,
+    value10:$.phone2,
+    value11:$.email,
+    value12:$.web
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<db:bulk-insert doc:name="Bulk insert" doc:id="d4e980ab-6689-454c-8648-49280ffb433f" config-ref="Database_Config">
+			<db:sql ><![CDATA[INSERT INTO `Emp-Details`(`First_name`, `last_name`, `company_name`, `address`, `city`, `county`, `state`, `zip`, `phone1`, `phone2`, `email`, `web`) VALUES (:value1,:value2,:value3,:value4,:value5,:value6,:value7,:value8,:value9,:value10,:value11,:value12)]]></db:sql>
+		</db:bulk-insert>
+	</flow>
+</mule>

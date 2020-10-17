@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd 
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	
+	<flow name="Insert" doc:id="a880bf3a-1d48-4112-ad91-053e78d2b771" >
+		<http:listener doc:name="Listener" doc:id="a8714aa6-b9b6-4156-b851-643ded9a5398" config-ref="HTTP_Listener_config" path="/path1"/>
+		<logger level="INFO" doc:name="Logger" doc:id="60fd7151-3aab-4fa6-9719-79dbb113ddfb" />
+		<db:insert doc:name="Insert" doc:id="c7ccbad3-7945-46c4-a874-668fc11be5d2" config-ref="Database_Config">
+			<db:sql><![CDATA[INSERT INTO `Emp-Details`(`First_name`, `last_name`, `company_name`, `address`, `city`, `county`, `state`, `zip`, `phone1`, `phone2`, `email`, `web`) VALUES (:value1,:value2,:value3,:value4,:value5,:value6,:value7,:value8,:value9,:value10,:value11,:value12)]]></db:sql>
+			<db:input-parameters ><![CDATA[#[{
+
+"value1":"testing",
+"value2":"testinh",
+"value3":"testing3",
+"value4":payload.address,
+"value5":payload.city,
+"value6":payload.county,
+"value7":payload.state,
+"value8":payload.zip,
+"value9":payload.phone1,
+"value10":payload.phone2,
+"value11":payload.email,
+"value12":payload.web
+
+
+}]]]></db:input-parameters>
+		</db:insert>
+		<logger level="INFO" doc:name="Logger" doc:id="50f4664f-aac0-4843-8d0e-139760759865" message="payload"/>
+	</flow>
+	
+	</mule>
