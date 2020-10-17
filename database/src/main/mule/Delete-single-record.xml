@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	
+	
+	<flow name="Delete-Records" doc:id="550e6c77-0dec-465c-88fc-95ab41f051c9" >
+		<http:listener doc:name="Listener" doc:id="937ce0d6-9422-48b3-909e-ef2cea64a6e9" config-ref="HTTP_Listener_config" path="/path6" outputMimeType="application/csv; ignoreemptyline=true">
+			<redelivery-policy />
+			<http:response >
+				<http:headers ><![CDATA[#[output application/java
+---
+{
+	"Key" : "Value"
+}]]]></http:headers>
+			</http:response>
+		</http:listener>
+		<ee:transform doc:name="Transform Message" doc:id="697bd527-fffa-4958-8f3d-eb395bb40cb9" >
+			<ee:message >
+			</ee:message>
+			<ee:variables >
+				<ee:set-variable variableName="fn" ><![CDATA[%dw 2.0
+output application/java
+---
+attributes.queryParams.firstname]]></ee:set-variable>
+			</ee:variables>
+		</ee:transform>
+		<db:delete doc:name="Delete" doc:id="a1c6bf54-4494-47a7-8814-f87553be1b4e" config-ref="Database_Config">
+			<db:sql ><![CDATA[DELETE FROM `Emp-Details` WHERE `First_name`= :value]]></db:sql>
+			<db:input-parameters ><![CDATA[#[{
+	
+	'value':vars.fn
+}]]]></db:input-parameters>
+		</db:delete>
+		<ee:transform doc:name="Transform Message" doc:id="b51d76cd-b1d1-43ec-8142-e0961d5f064d" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	
+</mule>

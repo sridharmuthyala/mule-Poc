@@ -5,7 +5,8 @@
 	"order": [
 		"afafa60a-120f-73ee-273f-ffa51d27e241",
 		"b20647ca-d26b-d879-6927-d991787ede43",
-		"0fd5320b-b414-ad47-27ae-2806b08322de"
+		"0fd5320b-b414-ad47-27ae-2806b08322de",
+		"cca0afcd-3030-7b34-3e3f-493bf1ee5aa7"
 	],
 	"folders": [],
 	"folders_order": [],
@@ -119,6 +120,37 @@
 			"collectionId": "c7400230-2ec3-8880-8b3a-b8e9908aa2df",
 			"responses": [],
 			"rawModeData": "  {\r\n    \"first_name\": \"Rory\",\r\n    \"last_name\": \"Papasergi\",\r\n    \"company_name\": \"Bailey Cntl Co Div Babcock\",\r\n    \"address\": \"83 County Road 437 #8581\",\r\n    \"city\": \"Clarks Summit\",\r\n    \"county\": \"Lackawanna\",\r\n    \"state\": \"PA\",\r\n    \"zip\": \"18411\",\r\n    \"phone1\": \"570-867-7489\",\r\n    \"phone2\": \"570-469-8401\",\r\n    \"email\": \"rpapasergi@cox.net\",\r\n    \"web\": \"http://www.baileycntlcodivbabcock.com\"\r\n  }"
+		},
+		{
+			"id": "cca0afcd-3030-7b34-3e3f-493bf1ee5aa7",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8081/path6?firstname=safdsf",
+			"queryParams": [
+				{
+					"key": "firstname",
+					"value": "safdsf",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "c7400230-2ec3-8880-8b3a-b8e9908aa2df",
+			"data": null,
+			"dataMode": "params",
+			"name": "delete-records",
+			"description": "delete records",
+			"descriptionFormat": "html",
+			"time": 1602960008099,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
 		}
 	]
 }
